@@ -3,6 +3,8 @@
 Streamlit 레이아웃 프로토타입. 현재 DART/SEC API는 연결하지 않았으며 모든 수치는 가상 데이터입니다.
 기존 포트폴리오 화면의 1180px 중앙 정렬, 흰 배경, 파란 강조색, 카드 구성을 참고했습니다.
 
+운영 화면: https://corp-financial-dashboard.streamlit.app/
+
 ## 실행
 
 Python 3.11 이상을 권장합니다.
