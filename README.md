@@ -1,6 +1,6 @@
 # 기업 재무 대시보드
 
-Streamlit 레이아웃 프로토타입. 현재 DART/SEC API는 연결하지 않았으며 모든 수치는 가상 데이터입니다.
+한국 DART와 미국 SEC EDGAR의 공식 공시 데이터를 조회하는 Streamlit 재무 대시보드입니다.
 기존 포트폴리오 화면의 1180px 중앙 정렬, 흰 배경, 파란 강조색, 카드 구성을 참고했습니다.
 
 운영 화면: https://corp-financial-dashboard.streamlit.app/
@@ -14,8 +14,10 @@ python -m pip install -r requirements.txt
 python -m streamlit run app.py
 ```
 
-기업명은 비워 두어도 미리보기가 가능합니다. 예시 검색은 삼성전자, SK하이닉스, Apple, Microsoft를 지원합니다.
-분기/연도, 시작/종료 기간을 변경한 뒤 미리보기 버튼을 누르면 반영됩니다.
+기업명 또는 종목코드를 검색하고 분기/연도, 시작/종료 기간을 지정해 조회합니다.
+
+실제 API 연결 시 `.streamlit/secrets.toml.example`을 `.streamlit/secrets.toml`로 복사한 뒤
+`DART_API_KEY`와 `SEC_USER_AGENT`를 입력합니다. 실제 인증정보가 든 파일은 Git에서 제외됩니다.
 
 ## 확정한 화면 범위
 
@@ -37,4 +39,6 @@ python -m streamlit run app.py
 6. 원문 공시 링크, 보고기간, 통화/단위 및 조회 시점을 표시한다.
 
 GitHub 배포 진입점은 `app.py`입니다. DART 인증키는 GitHub에 올리지 않고 배포 환경의 secrets로 관리합니다.
-현재 GitHub 업로드와 배포는 수행하지 않았습니다.
+현재 공개 앱은 Streamlit Community Cloud에 배포되어 있으며, 로컬 변경은 검토 후 GitHub에 반영합니다.
+
+API 연결 원칙과 필요한 설정은 [API_INTEGRATION_PLAN.md](API_INTEGRATION_PLAN.md)를 참고하세요.

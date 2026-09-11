@@ -18,7 +18,7 @@ def render_report(frame, company, frequency, unit, groups, colors):
 
     text(64, 38, f"{company} · 기업 재무 대시보드", 44)
     text(64, 108, f"{frequency}  |  {frame.index[0]} ~ {frame.index[-1]}  |  단위: {unit}", 26)
-    text(64, 155, "레이아웃 미리보기 · 가상 데이터 · 실제 재무정보 아님", 23, "#B45309")
+    text(64, 155, "DART·SEC 공식 공시 기반 · 표시 단위와 보고기간을 함께 확인하세요.", 23, "#6B7684")
     for index, (title, names) in enumerate(groups):
         top = 225 + index * 570
         draw.rounded_rectangle((40, top, width - 40, top + 540), radius=22, fill="white")
