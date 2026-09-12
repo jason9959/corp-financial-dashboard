@@ -61,8 +61,12 @@ def search_companies(companies: Iterable[Company], query: str, limit: int = 20):
             rank = 4
         else:
             continue
-        ranked.append((rank, len(name), company.name, company))
-    return [item[-1] for item in sorted(ranked)[:limit]]
+        # Keep the Company object out of the sort comparison.  SEC can expose
+        # duplicate rows with the same rank/name, and dataclass instances are
+        # intentionally not orderable.
+        ranked.append((rank, len(name), company.name, company.symbol,
+                       company.source_id, company))
+    return [item[-1] for item in sorted(ranked, key=lambda item: item[:-1])[:limit]]
 
 
 def _get_json(url, *, headers=None, params=None):

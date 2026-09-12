@@ -16,3 +16,11 @@ def test_search_supports_korean_company_name():
 
 def test_blank_query_has_no_results():
     assert search_companies([], "  ") == []
+
+
+def test_duplicate_ranked_matches_do_not_compare_company_objects():
+    companies = [
+        Company("Google Inc.", "GOOG", "미국", "SEC EDGAR", "1"),
+        Company("Google Inc.", "GOOG", "미국", "SEC EDGAR", "2"),
+    ]
+    assert len(search_companies(companies, "GOOG")) == 2
