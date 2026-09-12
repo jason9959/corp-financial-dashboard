@@ -66,7 +66,16 @@ def search_companies(companies: Iterable[Company], query: str, limit: int = 20):
         # intentionally not orderable.
         ranked.append((rank, len(name), company.name, company.symbol,
                        company.source_id, company))
-    return [item[-1] for item in sorted(ranked, key=lambda item: item[:-1])[:limit]]
+    return [
+        item[-1]
+        for item in sorted(
+            ranked,
+            key=lambda item: (
+                int(item[0]), int(item[1]), str(item[2]).casefold(),
+                str(item[3]).casefold(), str(item[4]).casefold(),
+            ),
+        )[:limit]
+    ]
 
 
 def _get_json(url, *, headers=None, params=None):
