@@ -3,7 +3,7 @@
 한국 DART와 미국 SEC EDGAR의 공식 공시 데이터를 조회하는 Streamlit 재무 대시보드입니다.
 기존 포트폴리오 화면의 1180px 중앙 정렬, 흰 배경, 파란 강조색, 카드 구성을 참고했습니다.
 
-운영 화면: https://cinema99593.streamlit.app/
+운영 화면: https://cinema99594.streamlit.app/
 
 ## 실행
 
